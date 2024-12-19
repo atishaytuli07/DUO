@@ -120,14 +120,12 @@ nav #circle{
 }
 
 #page-2{
-    min-height: 120vh;
+    min-height: 110vh;
     width: 100vw;
-    background-color: #fff;
-    color: #0F0D0D;
+    padding: 7vw;
 }
 
 #page-2 h1{
-    padding: 2vw;
     font-size: 4.5vw;
     font-weight: 500;
 }
@@ -138,7 +136,7 @@ nav #circle{
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 0 7vw;
+    padding: 2vw;
 }
 
 .page-2l{
@@ -150,8 +148,9 @@ nav #circle{
 }
 
 .page-2l h2{
-    font-size: 3.2vw;
+    font-size: 3vw;
     font-weight: 300;
+    line-height: 2.7vw;
 }
 
 .page-2r p{
@@ -166,4 +165,15 @@ nav #circle{
     border: none;
     border-radius: 50px;
     margin: 30px auto;
+}
+
+#page-3{
+    min-height: 110vh;
+    width: 100vw;
+    padding: 7vw;
+}
+
+#page-3 h1{
+    font-size: 4.5vw;
+    font-weight: 500;
 }

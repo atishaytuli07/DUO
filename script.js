@@ -56,3 +56,18 @@ tl.to("#page-1 #v-container",{
   duration: 1,
   ease: Power0.easeOut
 }, "anm")
+
+let tl2 = gsap.timeline({
+  scrollTrigger:{
+    trigger: "#page-2",
+    scroller: "main", 
+    start: "top 60%",
+    end: "top -70%",
+    scrub: 2
+  }
+})
+
+tl2.to("main", {
+  backgroundColor: "#fff",
+  color: "#111"
+})
