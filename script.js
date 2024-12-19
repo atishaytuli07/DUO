@@ -3,7 +3,9 @@ function init(){
 
 const locoScroll = new LocomotiveScroll({
   el: document.querySelector("main"),
-  smooth: true
+  smooth: true,
+  lerp: 0.03, // Lower lerp value for smoother scrolling
+  multiplier: 0.7 // Reduce scroll speed multiplier
 });
 
 locoScroll.on("scroll", ScrollTrigger.update);
@@ -25,10 +27,21 @@ ScrollTrigger.scrollerProxy("main", {
 
 init();
 
-var crsr = document.querySelector(".cursor")
-document.addEventListener("mousemove",function(dets){
-    crsr.style.left = dets.x + 20+"px"
-    crsr.style.top = dets.y + 20+"px"
+document.querySelectorAll('.elem').forEach(elem => {
+  elem.addEventListener('mouseenter', () => {
+    elem.style.zIndex = '10';
+  });
+  
+  elem.addEventListener('mouseleave', () => {
+    elem.style.zIndex = '1';
+  });
+});
+
+let cursor = document.querySelector(".cursor")
+let main = document.querySelector("main")
+document.addEventListener("mousemove", function(dets){
+    cursor.style.left = dets.x + "px"
+    cursor.style.top = dets.y + "px"
 })
 
 let tl = gsap.timeline({
@@ -41,16 +54,19 @@ let tl = gsap.timeline({
     scrub: 3
   }
 })
+
 tl.to("#page-1 h1",{
   x: -100,
   duration: 1,
  
 }, "anm")
+
 tl.to("#page-1 h2",{
   x: 100,
   duration: 1,
  
 }, "anm")
+
 tl.to("#page-1 #v-container",{
   width:"90%",
   duration: 1,
@@ -61,8 +77,8 @@ let tl2 = gsap.timeline({
   scrollTrigger:{
     trigger: "#page-2",
     scroller: "main", 
-    start: "top 60%",
-    end: "top -70%",
+    start: "top 40%",
+    end: "top -60%",
     scrub: 2
   }
 })
@@ -70,4 +86,19 @@ let tl2 = gsap.timeline({
 tl2.to("main", {
   backgroundColor: "#fff",
   color: "#111"
+})
+
+let tl3 = gsap.timeline({
+  scrollTrigger:{
+    trigger: "#page-4",
+    scroller: "main", 
+    start: "top 30%",
+    end: "top -40%",
+    scrub: 2
+  }
+})
+
+tl3.to("main", {
+  backgroundColor: "#000",
+  color: "#fff"
 })
